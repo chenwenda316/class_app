@@ -37,7 +37,7 @@
                 <span class="vhsize"><strong>课表</strong></span>
                 </template>
                 <n-timeline icon-size="4vh">
-                    <n-timeline-item v-for="item in classData" :type="item.type">
+                    <n-timeline-item v-for="item in classData" :type="item.type" :style="{ 'padding-bottom': (item.duration?5:0) + 'vh' }">
                         <template #header>
                             <span class="vhsize"><strong>{{item.name}}</strong></span>
                         </template>
@@ -49,6 +49,7 @@
                             <Radio-Button-Off v-if="item.type==''"/>
                         </template>
                     </n-timeline-item>
+                    
                 </n-timeline>
             </n-card>
         </n-grid-item><n-grid-item span="2">
@@ -99,7 +100,7 @@ export default {
         {name:"英语",time:"8:00",type:""},
         {name:"体育",time:"8:50",type:""},
         {name:"数学",time:"10:05",type:""},
-        {name:"语文",time:"11:55",type:""},
+        {name:"语文",time:"10:55",type:""},
         {name:"B2",time:"13:00",type:""},
         {name:"B1",time:"13:50",type:""},
         {name:"B3",time:"14:45",type:""},
@@ -115,14 +116,14 @@ export default {
         [
         {name:"B1",time:"8:00",type:"",duration:90},
         {name:"体育",time:"10:05",type:""},
-        {name:"英语",time:"11:55",type:""},
+        {name:"英语",time:"10:55",type:""},
         {name:"B2",time:"13:00",type:"",duration:90},
         {name:"B3",time:"14:45",type:"",duration:90},
         ],
         [
         {name:"英语",time:"8:00",type:"",duration:90},
         {name:"体育",time:"10:05",type:""},
-        {name:"数学",time:"11:55",type:""},
+        {name:"数学",time:"10:55",type:""},
         {name:"语文",time:"13:00",type:""},
         {name:"B3",time:"13:50",type:""},
         {name:"B1",time:"14:45",type:""},
