@@ -104,7 +104,7 @@ export default {
         {name:"B2",time:"13:00",type:""},
         {name:"B1",time:"13:50",type:""},
         {name:"B3",time:"14:45",type:""},
-        {name:"班",time:"15:35",type:""},
+        {name:"班会",time:"15:35",type:""},
         ],
         [
         {name:"语文",time:"8:00",type:""},
