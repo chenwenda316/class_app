@@ -8,12 +8,9 @@
 <template>
 <n-message-provider>
     <n-layout>
-        <!-- <n-layout-header>颐和园路</n-layout-header> -->
         <n-layout has-sider>
             <n-layout-sider bordered collapse-mode="width" :collapsed-width="collapsedWidth" :width="200" :collapsed="collapsed" show-trigger="bar" @collapse="collapsed = true" @expand="collapsed = false">
-                <!-- <n-affix :trigger-top="35" position="absolute"> -->
                 <n-menu v-model:value="activeKey" :collapsed="collapsed" :collapsed-width="collapsedWidth" :collapsed-icon-size="22" :options="menuOptions" />
-                <!-- </n-affix> -->
             </n-layout-sider>
             <n-layout-content ref="containerRef" content-style="padding:0px;height:100vh;background: center/cover url('https://s1.ax1x.com/2023/02/16/pS7vvT0.jpg');">
                 <n-scrollbar ref = "mscrollbar" style="max-height: 100vh;" >
@@ -21,7 +18,6 @@
                     <n-back-top :bottom="100">
                     </n-back-top>
                 </n-scrollbar>
-                <!-- <n-back-top :right="100" /> -->
             </n-layout-content>
         </n-layout>
         <n-layout-footer></n-layout-footer>
