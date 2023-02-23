@@ -317,10 +317,6 @@ export default {
     transform: translate(-50%, -50%) scale(0.95);
     animation: 5s ease-in-out 0s infinite alternate breath;
 }
-.circ{
-    
-}
-
 @keyframes breath {
     from {
         transform: translate(-50%, -50%) scale(0.95);
