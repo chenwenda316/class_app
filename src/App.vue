@@ -1,8 +1,8 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2022-12-02 21:34:45
- * @LastEditTime: 2023-02-20 23:16:43
- * @FilePath: \app\class_app_dev\src\App.vue
+ * @LastEditTime: 2023-02-24 23:32:37
+ * @FilePath: \class_app_dev\src\App.vue
 -->
 
 <template>
@@ -207,9 +207,13 @@ export default defineComponent({
         }
     },
     mounted() {
-        console.clear();
-        console.log("Main page mounted!");
+        // console.clear();
+        console.log("Main page mounted! "+ ((new Date()).getTime()-window.app_beforeCreate_time)+" ms for loading.");
+        window.app_beforeCreate_time = undefined;
         window.$scrollTo=this.mscrollTo;
+    },
+    beforeCreate(){
+        window.app_beforeCreate_time = (new Date()).getTime();
     }
 });
 </script>

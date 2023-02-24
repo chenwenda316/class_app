@@ -9,7 +9,7 @@ instance.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlen
 
 instance.interceptors.request.use(
     function (config) {
-        console.log("interceptorsreq");
+        // console.log("request-intercept");
         const token = localStorage.getItem("token");
         token && (config.headers.Authorization = token);     
         return config;
@@ -20,7 +20,7 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
     function (response) {
-        console.log(response);
+        // console.log("response-intercept",response);
         return response;
     }, function (error) {
         console.log(error.response.status);

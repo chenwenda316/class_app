@@ -1,8 +1,8 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2022-12-02 21:34:45
- * @LastEditTime: 2022-12-03 17:47:38
- * @FilePath: \app\class_app_dev\src\views\HomeView.vue
+ * @LastEditTime: 2023-02-24 23:17:37
+ * @FilePath: \class_app_dev\src\views\HomeView.vue
 -->
 <template>
 <div style="margin:auto;" >
@@ -40,7 +40,7 @@
                         </template>
                         班级网盘
                     </n-button>
-                    <n-button size="large" strong secondary round type="info" @click="routeTo('zuowei')">
+                    <n-button size="large" strong secondary round type="info" @click="routeTo('seat')">
                         <template #icon>
                             <n-icon>
                                 <grid-icon />
@@ -125,10 +125,11 @@ export default defineComponent({
                 // useMessage
             },
             routeTo(e) {
+                window.routeTo(e)
+                return;
                 this.$router.push({
                     path: '/' + e,
                 })
-                console.info(e);
             }
         };
     }

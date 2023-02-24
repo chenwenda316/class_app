@@ -1,13 +1,13 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2022-12-03 17:50:11
- * @LastEditTime: 2023-02-11 22:21:32
- * @FilePath: \app\class_app_dev\src\views\SeatContainerView.vue
+ * @LastEditTime: 2023-02-24 21:30:54
+ * @FilePath: \class_app_dev\src\views\SeatContainerView.vue
 -->
 <template>
 <main style="margin:auto;">
     <!-- <n-card title="座位排序" hoverable style="height:calc(100vh - 48px)"> -->
-    <seat-view />
+    <seat-view @change-collapsed-width="changeCollapsedWidth"/>
     <!-- </n-card> -->
 </main>
 </template>
@@ -30,6 +30,12 @@ export default defineComponent({
         return {
             message,
         };
-    }
+    },
+    methods:{
+        changeCollapsedWidth(e){
+            this.$emit("changeCollapsedWidth", e);
+
+        }
+    },
 });
 </script>
