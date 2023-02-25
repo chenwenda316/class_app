@@ -123,7 +123,7 @@
         x="100"
         y="4"
         style="font-size: 3px; text-anchor: middle"
-        :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 20 + ')' : ''"
+        :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 4 + ')' : ''"
       >
         Changed {{changeValue}} times. Developed by {{developer.join(', ')}}. based on Vue3.
       </text>
