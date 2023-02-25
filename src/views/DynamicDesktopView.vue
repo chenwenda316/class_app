@@ -204,8 +204,8 @@ export default {
             }
             window.$msto =  setTimeout(() => {
                 window.$devMsg.destroy();
-                window.$devMsg=undefined;
-                window.$msto = undefined;
+                delete window.$devMsg;
+                delete window.$msto;
             }, 1000);
             
         }
@@ -250,8 +250,8 @@ export default {
   },
   mounted(){
         this.$emit('changeCollapsedWidth', 0)
-        window.$devMsg = undefined;
-        window.$msto = undefined;
+        delete window.$devMsg ;
+        delete window.$msto  ;
         setInterval(() => {
             for(let i in this.classData){
                 let nDate = new Date();
