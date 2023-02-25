@@ -34,7 +34,7 @@ export default defineComponent({
     methods:{
         changeCollapsedWidth(e){
             this.$emit("changeCollapsedWidth", e);
-
+            console.log("changeCollapsedWidth(container)");
         }
     },
 });

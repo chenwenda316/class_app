@@ -1,12 +1,12 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2022-12-03 17:57:22
- * @LastEditTime: 2023-02-24 23:11:05
+ * @LastEditTime: 2023-02-25 20:41:42
  * @FilePath: \class_app_dev\src\views\SeatView.vue
 -->
 <template>
   <div class="about">
-    <svg
+    <svg ref="SVGref"
       viewBox="0 0 200 173.2051"
       height="100%"
       width="min(calc(100vh * 1.1546 - 60px * 1.1546), calc(100vw - 124px))"
@@ -63,7 +63,7 @@
         :x="desk.x"
         :y="desk.y"
         class="desk"
-        :style="{ fontSize: desk.name.length == 4 ? 3.9 : 4.9 + 'px' }"
+        :style="{ fontSize: (desk.name.length == 4 ? 3.9 : 4.9) + 'px' }"
         :transform="
           rotated
             ? 'rotate(' + 180 + ' ' + desk.x + ',' + (desk.y - 1.9) + ')'
@@ -119,6 +119,14 @@
         stroke="black"
         stroke-width="0.3"
       ></rect>
+      <text
+        x="100"
+        y="4"
+        style="font-size: 3px; text-anchor: middle"
+        :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 20 + ')' : ''"
+      >
+        Changed {{changeValue}} times. Developed by {{developer.join(', ')}}. based on Vue3.
+      </text>
     </svg>
     <n-input-number
       v-model:value="changeValue"
@@ -136,7 +144,7 @@
       :format-tooltip="formatTooltip"
       vertical
       style="
-        height: calc(100vh - 150px);
+        height: calc(100vh - 200px);
         position: absolute;
         margin-top: 60px;
         top: 30px;
@@ -149,7 +157,7 @@
       :format-tooltip="formatTooltip_y"
       vertical
       style="
-        height: calc(100vh - 150px);
+        height: calc(100vh - 200px);
         position: absolute;
         left: 60px;
         margin-top: 60px;
@@ -158,8 +166,14 @@
     />
     <n-switch
       v-model:value="rotated"
-      style="position: absolute; bottom: 30px; background-color: #ffffffaa"
+      style="position: absolute; bottom: 75px; background-color: #ffffffaa"
     />
+    <n-button type="success"
+      style="position: absolute; bottom: 30px;"
+      @click="print"
+    >
+      打印
+    </n-button>
   </div>
 </template>
 <script>
@@ -242,6 +256,8 @@ export default defineComponent({
       deskHeight: 10,
       changeValue: ref(0),
       rotated: ref(0),
+      SVGref :ref(void 0),
+      developer:["for_each",'Chison']
     };
   },
   computed: {
@@ -306,26 +322,34 @@ export default defineComponent({
       return res;
     },
   },
+  methods:{
+      print(){
+        window.$print(this.SVGref)
+      }
+  }
+  ,
   mounted() {
-    window.$controller = new AbortController();
-    window.addEventListener(
-      "beforeprint",
-      () => {
-        this.$emit("changeCollapsedWidth", 0);
-      },
-      { signal: window.$controller.signal }
-    );
-    window.addEventListener(
-      "afterprint",
-      () => {
-        this.$emit("changeCollapsedWidth", 64);
-      },
-      { signal: window.$controller.signal }
-    );
+    // window.$controller = new AbortController();
+    // window.addEventListener(
+    //   "beforeprint",
+    //   () => {
+    //     console.log("beforeprint");
+    //     this.$emit("changeCollapsedWidth", 0);
+    //   },
+    //   { signal: window.$controller.signal }
+    // );
+    // window.addEventListener(
+    //   "afterprint",
+    //   () => {
+    //     console.log("afterprint");
+    //     this.$emit("changeCollapsedWidth", 64);
+    //   },
+    //   { signal: window.$controller.signal }
+    // );
   },
   unmounted() {
-    window.$controller.abort()
-    window.$controller = undefined;
+    // window.$controller.abort()
+    // window.$controller = undefined;
   },
 });
 </script>
@@ -335,6 +359,6 @@ export default defineComponent({
 <style>
 .desk {
   text-anchor: middle;
-  font-size: 4.9px;
+  /*font-size: 4.9px;*/
 }
 </style>

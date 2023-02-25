@@ -1,10 +1,10 @@
 /*
  * @Author: chenwenda316
  * @Date: 2022-12-02 21:34:45
- * @LastEditTime: 2023-02-15 21:52:16
- * @FilePath: \app\class_app_dev\src\router\index.js
+ * @LastEditTime: 2023-02-25 19:37:39
+ * @FilePath: \class_app_dev\src\router\index.js
  */
-import { faWindows } from '@fortawesome/free-brands-svg-icons';
+// import { faWindows } from '@fortawesome/free-brands-svg-icons';
 import { createRouter, createWebHistory } from 'vue-router'
 
 
