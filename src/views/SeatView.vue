@@ -128,30 +128,37 @@
         Changed {{changeValue}} times. Developed by {{developer.join(', ')}}. based on Vue3.
       </text>
     </svg>
+    <n-card title="控制台"/>
     <n-input-number
       v-model:value="changeValue"
-      style="position: absolute; top: 30px"
+      style="position: absolute; bottom: 17vh; right:5.5vh; width: 130px"
     >
       <template #prefix> 变换 </template>
       <template #suffix>
         <!-- 次 -->
       </template>
     </n-input-number>
+    <template>
+  <n-space vertical>
+    <n-slider v-model:value="value" :step="10" />
+    <n-input-number v-model:value="value" size="small" />
+  </n-space>
+</template>
     <n-slider
       v-model:value="scaleValue"
       step="1"
       :default-value="0"
       :format-tooltip="formatTooltip"
-      vertical
       style="
-        height: calc(100vh - 200px);
+        width: calc(100vh - 510px);
         position: absolute;
         --n-rail-color: rgba(180, 180, 180, 1);
         margin-top: 60px;
-        top: 30px;
+        bottom: 11vh;
+        right: 6vh;
       "
     />
-    <n-slider
+    <!--<n-slider
       v-model:value="yValue"
       step="1"
       :default-value="70"
@@ -165,18 +172,19 @@
         margin-top: 60px;
         top: 30px;
       "
-    />
+    />-->
     <n-switch
       v-model:value="rotated"
       style="
         position: absolute;
-        bottom: 75px;
+        bottom: 4.5vh;
+        right: 19vh;
         --n-rail-color: rgba(180, 180, 180, 1);
         background-color: transparent
       "
     />
     <n-button type="success"
-      style="position: absolute; left:25px; bottom: 30px;"
+      style="position: absolute; right:5.5vh; bottom: 3.7vh;"
       @click="print"
     >
       打印
@@ -364,6 +372,17 @@ export default defineComponent({
 
 
 <style>
+.n-card {
+  position: absolute;
+  bottom: 1.5vh;
+  right: 3vh;
+  width: 25.5vh;
+  height: 30vh;
+  font-size: smaller;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.8);
+}
+
 .desk {
   text-anchor: middle;
   /*font-size: 4.9px;*/
