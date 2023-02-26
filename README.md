@@ -1,6 +1,6 @@
 # class_app_dev
 
-This template should help get you started developing with Vue 3 in Vite.
+非本仓库成员看到本文件，请立即离开。一旦代码泄露，我们将向您追究相关责任。
 
 ## Recommended IDE Setup
 
