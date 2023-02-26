@@ -171,13 +171,12 @@
       style="
         position: absolute;
         bottom: 75px;
-        --n-button-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), inset 0 0 0 0 rgba(0, 0, 0, 0);
         --n-rail-color: rgba(180, 180, 180, 1);
         background-color: transparent
       "
     />
     <n-button type="success"
-      style="position: absolute; bottom: 30px;"
+      style="position: absolute; left:25px; bottom: 30px;"
       @click="print"
     >
       打印
