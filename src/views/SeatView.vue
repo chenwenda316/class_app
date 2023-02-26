@@ -32,7 +32,7 @@
         style="fill: none; stroke: black; stroke-width: 0.3"
       />
       <polygon
-        points="35.6423,24.8682 38.6423,26.3682 10.289,75.4976 14.289,77.4976 14.289,95.7075 10.289,97.7075  38.6423,146.8369   35.6423,148.3369  0,86.6025"
+      points="35.6423,24.8682 38.6423,26.3682 14.289,68.5696 27.289,77.5696 27.289,95.6355 14.289,104.6355  38.6423,146.8369   35.6423,148.3369  0,86.6025"
         style="fill: grey"
       />
       <polygon
@@ -146,6 +146,7 @@
       style="
         height: calc(100vh - 200px);
         position: absolute;
+        --n-rail-color: rgba(180, 180, 180, 1);
         margin-top: 60px;
         top: 30px;
       "
@@ -159,6 +160,7 @@
       style="
         height: calc(100vh - 200px);
         position: absolute;
+        --n-rail-color: rgba(180, 180, 180, 1);
         left: 60px;
         margin-top: 60px;
         top: 30px;
@@ -166,7 +168,13 @@
     />
     <n-switch
       v-model:value="rotated"
-      style="position: absolute; bottom: 75px; background-color: #ffffffaa"
+      style="
+        position: absolute;
+        bottom: 75px;
+        --n-button-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), inset 0 0 0 0 rgba(0, 0, 0, 0);
+        --n-rail-color: rgba(180, 180, 180, 1);
+        background-color: transparent
+      "
     />
     <n-button type="success"
       style="position: absolute; bottom: 30px;"
