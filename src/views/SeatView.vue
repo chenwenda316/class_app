@@ -128,36 +128,61 @@
         Changed {{changeValue}} times. Developed by {{developer.join(', ')}}. based on Vue3.
       </text>
     </svg>
-    <n-card title="控制台"/>
-    <n-input-number
-      v-model:value="changeValue"
-      style="position: absolute; bottom: 17vh; right:5.5vh; width: 130px"
-    >
-      <template #prefix> 变换 </template>
-      <template #suffix>
-        <!-- 次 -->
+    <n-card :bordered="false" title="控制台" header-style="font-size: 3vh">
+      <n-input-number
+        v-model:value="changeValue"
+        style="
+          position: absolute;
+          bottom: 16vh;
+          right:2.5vh;
+          width: 20.5vh
+        "
+      >
+        <template #prefix>变换</template>
+      </n-input-number>
+      <n-slider
+        v-model:value="scaleValue"
+        step="1"
+        :default-value="0"
+        :format-tooltip="formatTooltip"
+        style="
+          width: 20vh;
+          position: absolute;
+          --n-rail-color: rgba(180, 180, 180, 1);
+          --n-rail-height: 0.8vh;
+          margin-top: 60px;
+          bottom: 11vh;
+          right: 3vh
+        "
+      />
+      <template #footer>
+        <n-switch
+          v-model:value="rotated"
+          style="
+            position: absolute;
+            bottom: 4.5vh;
+            left: 3vh;
+            --n-rail-color: rgba(180, 180, 180, 1);
+            background-color: transparent
+          "
+        />
+        <n-button type="success"
+          style="
+            position: absolute;
+            right:3vh;
+            bottom: 3.7vh;
+            width: 8vh;
+            height: 5vh;
+            border-radius: 0.8vh;
+            align-items: center;
+            font-size: 2vh;
+          "
+          @click="print"
+        >
+          打印
+        </n-button>
       </template>
-    </n-input-number>
-    <template>
-  <n-space vertical>
-    <n-slider v-model:value="value" :step="10" />
-    <n-input-number v-model:value="value" size="small" />
-  </n-space>
-</template>
-    <n-slider
-      v-model:value="scaleValue"
-      step="1"
-      :default-value="0"
-      :format-tooltip="formatTooltip"
-      style="
-        width: calc(100vh - 510px);
-        position: absolute;
-        --n-rail-color: rgba(180, 180, 180, 1);
-        margin-top: 60px;
-        bottom: 11vh;
-        right: 6vh;
-      "
-    />
+    </n-card>
     <!--<n-slider
       v-model:value="yValue"
       step="1"
@@ -173,22 +198,7 @@
         top: 30px;
       "
     />-->
-    <n-switch
-      v-model:value="rotated"
-      style="
-        position: absolute;
-        bottom: 4.5vh;
-        right: 19vh;
-        --n-rail-color: rgba(180, 180, 180, 1);
-        background-color: transparent
-      "
-    />
-    <n-button type="success"
-      style="position: absolute; right:5.5vh; bottom: 3.7vh;"
-      @click="print"
-    >
-      打印
-    </n-button>
+
   </div>
 </template>
 <script>
@@ -378,9 +388,9 @@ export default defineComponent({
   right: 3vh;
   width: 25.5vh;
   height: 30vh;
-  font-size: smaller;
-  border-radius: 15px;
+  border-radius: 2vh;
   background: rgba(255,255,255,0.8);
+
 }
 
 .desk {
