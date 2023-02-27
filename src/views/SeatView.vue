@@ -59,7 +59,7 @@
         讲台
       </text>
       <text
-        v-for="desk in studentPositions"
+        v-for="desk in studentPositions" :key="desk"
         :x="desk.x"
         :y="desk.y"
         class="desk"
@@ -73,7 +73,7 @@
         {{ desk.name || "null" }}
       </text>
       <rect
-        v-for="rect in studentPositions"
+        v-for="rect in studentPositions" :key="rect"
         :x="rect.x - deskWidth / 2"
         :y="rect.y - deskHeight / 2 - 2"
         :width="deskWidth"
