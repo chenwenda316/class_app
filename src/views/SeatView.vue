@@ -4,9 +4,13 @@
  * @LastEditTime: 2023-02-25 20:41:42
  * @FilePath: \class_app_dev\src\views\SeatView.vue
 -->
-<template>
-  <div class="about">
-    <svg ref="SVGref"
+<template >
+  <div class="about"
+@touchend="onCtrlpointerUp"
+@pointerup="onCtrlpointerUp"
+>
+    <svg
+      ref="SVGref"
       viewBox="0 0 200 173.2051"
       height="100%"
       width="min(calc(100vh * 1.1546 - 60px * 1.1546), calc(100vw - 124px))"
@@ -32,7 +36,7 @@
         style="fill: none; stroke: black; stroke-width: 0.3"
       />
       <polygon
-      points="35.6423,24.8682 38.6423,26.3682 14.289,68.5696 27.289,77.5696 27.289,95.6355 14.289,104.6355  38.6423,146.8369   35.6423,148.3369  0,86.6025"
+        points="35.6423,24.8682 38.6423,26.3682 14.289,68.5696 27.289,77.5696 27.289,95.6355 14.289,104.6355  38.6423,146.8369   35.6423,148.3369  0,86.6025"
         style="fill: grey"
       />
       <polygon
@@ -59,7 +63,8 @@
         讲台
       </text>
       <text
-        v-for="desk in studentPositions" :key="desk"
+        v-for="desk in studentPositions"
+        :key="desk"
         :x="desk.x"
         :y="desk.y"
         class="desk"
@@ -73,7 +78,8 @@
         {{ desk.name || "null" }}
       </text>
       <rect
-        v-for="rect in studentPositions" :key="rect"
+        v-for="rect in studentPositions"
+        :key="rect"
         :x="rect.x - deskWidth / 2"
         :y="rect.y - deskHeight / 2 - 2"
         :width="deskWidth"
@@ -125,20 +131,28 @@
         style="font-size: 3px; text-anchor: middle"
         :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 4 + ')' : ''"
       >
-        Changed {{changeValue}} times. Developed by {{developer.join(', ')}}. based on Vue3.
+        Changed {{ changeValue }} times. Developed by
+        {{ developer.join(", ") }}. based on Vue3.
       </text>
     </svg>
-    <n-card :bordered="false" title="控制台" header-style="font-size: 3vh">
+    <n-card
+      :bordered="false"
+      title="控制台"
+      header-style="font-size: 3vh"
+      header-extra-style="font-size: 2vh"
+      :style="{ top: ctrlY/devicePixelRatio + 'px', left: ctrlX/devicePixelRatio + 'px' }"
+      class="ctrl"
+      @pointerdown="onCtrlpointerDown"
+      @touchstart="onCtrlpointerDown"
+    >
+      <template #header-extra> Console </template>
       <n-input-number
         v-model:value="changeValue"
-        style="
-          position: absolute;
-          bottom: 16vh;
-          right:2.5vh;
-          width: 20.5vh
-        "
+        style="position: absolute; bottom: 16vh; right: 2.5vh; width: 20.5vh"
+        @pointerdown.stop="()=>{}"
       >
         <template #prefix>变换</template>
+          
       </n-input-number>
       <n-slider
         v-model:value="scaleValue"
@@ -152,8 +166,9 @@
           --n-rail-height: 0.8vh;
           margin-top: 60px;
           bottom: 11vh;
-          right: 3vh
+          right: 3vh;
         "
+         @pointerdown.stop="()=>{}"
       />
       <template #footer>
         <n-switch
@@ -163,13 +178,15 @@
             bottom: 4.5vh;
             left: 3vh;
             --n-rail-color: rgba(180, 180, 180, 1);
-            background-color: transparent
+            background-color: transparent;
           "
+          @pointerdown.stop="()=>{}"
         />
-        <n-button type="success"
+        <n-button
+          type="success"
           style="
             position: absolute;
-            right:3vh;
+            right: 3vh;
             bottom: 3.7vh;
             width: 8vh;
             height: 5vh;
@@ -177,7 +194,8 @@
             align-items: center;
             font-size: 2vh;
           "
-          @click="print"
+          @click.stop="print"
+          @pointerdown.stop="()=>{}"
         >
           打印
         </n-button>
@@ -198,7 +216,6 @@
         top: 30px;
       "
     />-->
-
   </div>
 </template>
 <script>
@@ -271,6 +288,8 @@ const studentMap = [
 
 export default defineComponent({
   setup() {
+    const devicePixelRatio =1||window.devicePixelRatio;
+
     return {
       formatTooltip: (value) => `${value + 100}%`,
       formatTooltip_y: (value) => `${value}%`,
@@ -281,8 +300,14 @@ export default defineComponent({
       deskHeight: 10,
       changeValue: ref(0),
       rotated: ref(0),
-      SVGref :ref(void 0),
-      developer:["for_each",'Chison']
+      SVGref: ref(void 0),
+      developer: ["for_each", "Chison"],
+      ctrlX: ref(64*devicePixelRatio),
+      ctrlY: ref(0),
+      onDrop:ref(0),
+      offsetX:ref(0),
+      offsetY:ref(0),
+      devicePixelRatio,
     };
   },
   computed: {
@@ -347,12 +372,30 @@ export default defineComponent({
       return res;
     },
   },
-  methods:{
-      print(){
-        window.$print(this.SVGref)
+  methods: {
+    print() {
+      window.$print(this.SVGref);
+    },
+    onCtrlpointerDown(e) {
+      console.log("eventd",e,devicePixelRatio,e.x,e.y)
+      this.onDrop=1;
+      this.offsetX=e.x||e.touches[0].clientX;
+      this.offsetY=e.y||e.touches[0].clientY;
+    },
+    onCtrlpointerUp(e){
+      console.log("eventu",e,devicePixelRatio,e.x,e.y)
+      console.log("eventu",devicePixelRatio,this.offsetX,this.offsetY)
+      if(!this.onDrop){
+        return ;
       }
-  }
-  ,
+      this.onDrop=0;
+      this.ctrlX = this.ctrlX + (e.x||e.changedTouches[0].clientX) - this.offsetX;
+      this.ctrlY = this.ctrlY + (e.y||e.changedTouches[0].clientY) - this.offsetY;
+      this.offsetX=0;
+      this.offsetY=0;
+    }
+    // onCtrlpointerMove,
+  },
   mounted() {
     // window.$controller = new AbortController();
     // window.addEventListener(
@@ -389,12 +432,16 @@ export default defineComponent({
   width: 25.5vh;
   height: 30vh;
   border-radius: 2vh;
-  background: rgba(255,255,255,0.8);
-
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .desk {
   text-anchor: middle;
   /*font-size: 4.9px;*/
+}
+
+.ctrl {
+  position: fixed;
+  user-select: none;
 }
 </style>
