@@ -32,7 +32,7 @@
                 导航
             </n-divider> -->
                 <n-space>
-                    <n-button size="large" strong secondary round type="info">
+                    <n-button size="large" strong secondary round type="info"  @click="routeTo('404')">
                         <template #icon>
                             <n-icon>
                                 <file-icon />
@@ -48,7 +48,7 @@
                         </template>
                         座位排序
                     </n-button>
-                    <n-button size="large" strong secondary round type="info">
+                    <n-button size="large" strong secondary round type="info" @click="routeTo('random')">
                         <template #icon>
                             <n-icon>
                                 <shuffle-icon />
