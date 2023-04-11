@@ -5,10 +5,7 @@
  * @FilePath: \class_app_dev\src\views\SeatView.vue
 -->
 <template >
-  <div class="about"
-@touchend="onCtrlpointerUp"
-@pointerup="onCtrlpointerUp"
->
+  <div class="about" @touchend="onCtrlpointerUp" @pointerup="onCtrlpointerUp">
     <svg
       ref="SVGref"
       viewBox="0 0 200 173.2051"
@@ -140,7 +137,10 @@
       title="控制台"
       header-style="font-size: 3vh"
       header-extra-style="font-size: 2vh"
-      :style="{ top: ctrlY/devicePixelRatio + 'px', left: ctrlX/devicePixelRatio + 'px' }"
+      :style="{
+        top: ctrlY / devicePixelRatio + 'px',
+        left: ctrlX / devicePixelRatio + 'px',
+      }"
       class="ctrl"
       @pointerdown="onCtrlpointerDown"
       @touchstart="onCtrlpointerDown"
@@ -149,10 +149,10 @@
       <n-input-number
         v-model:value="changeValue"
         style="position: absolute; bottom: 16vh; right: 2.5vh; width: 20.5vh"
-        @pointerdown.stop="()=>{}"
+        @pointerdown.stop="() => {}"
+        @touchend.stop="() => {}"
       >
         <template #prefix>变换</template>
-          
       </n-input-number>
       <n-slider
         v-model:value="scaleValue"
@@ -168,7 +168,8 @@
           bottom: 11vh;
           right: 3vh;
         "
-         @pointerdown.stop="()=>{}"
+        @pointerdown.stop="() => {}"
+        @touchend.stop="() => {}"
       />
       <template #footer>
         <n-switch
@@ -180,7 +181,8 @@
             --n-rail-color: rgba(180, 180, 180, 1);
             background-color: transparent;
           "
-          @pointerdown.stop="()=>{}"
+          @pointerdown.stop="() => {}"
+          @touchend.stop="() => {}"
         />
         <n-button
           type="success"
@@ -195,7 +197,8 @@
             font-size: 2vh;
           "
           @click.stop="print"
-          @pointerdown.stop="()=>{}"
+          @pointerdown.stop="() => {}"
+          @touchend.stop="() => {}"
         >
           打印
         </n-button>
@@ -288,7 +291,7 @@ const studentMap = [
 
 export default defineComponent({
   setup() {
-    const devicePixelRatio =1||window.devicePixelRatio;
+    const devicePixelRatio = 1 || window.devicePixelRatio;
 
     return {
       formatTooltip: (value) => `${value + 100}%`,
@@ -302,11 +305,11 @@ export default defineComponent({
       rotated: ref(0),
       SVGref: ref(void 0),
       developer: ["for_each", "Chison"],
-      ctrlX: ref(64*devicePixelRatio),
+      ctrlX: ref(64 * devicePixelRatio),
       ctrlY: ref(0),
-      onDrop:ref(0),
-      offsetX:ref(0),
-      offsetY:ref(0),
+      onDrop: ref(0),
+      offsetX: ref(0),
+      offsetY: ref(0),
       devicePixelRatio,
     };
   },
@@ -377,23 +380,25 @@ export default defineComponent({
       window.$print(this.SVGref);
     },
     onCtrlpointerDown(e) {
-      console.log("eventd",e,devicePixelRatio,e.x,e.y)
-      this.onDrop=1;
-      this.offsetX=e.x||e.touches[0].clientX;
-      this.offsetY=e.y||e.touches[0].clientY;
+      console.log("eventd", e, devicePixelRatio, e.x, e.y);
+      this.onDrop = 1;
+      this.offsetX = e.x || e.touches[0].clientX;
+      this.offsetY = e.y || e.touches[0].clientY;
     },
-    onCtrlpointerUp(e){
-      console.log("eventu",e,devicePixelRatio,e.x,e.y)
-      console.log("eventu",devicePixelRatio,this.offsetX,this.offsetY)
-      if(!this.onDrop){
-        return ;
+    onCtrlpointerUp(e) {
+      console.log("eventu", e, devicePixelRatio, e.x, e.y);
+      console.log("eventu", devicePixelRatio, this.offsetX, this.offsetY);
+      if (!this.onDrop) {
+        return;
       }
-      this.onDrop=0;
-      this.ctrlX = this.ctrlX + (e.x||e.changedTouches[0].clientX) - this.offsetX;
-      this.ctrlY = this.ctrlY + (e.y||e.changedTouches[0].clientY) - this.offsetY;
-      this.offsetX=0;
-      this.offsetY=0;
-    }
+      this.onDrop = 0;
+      this.ctrlX =
+        this.ctrlX + (e.x || e.changedTouches[0].clientX) - this.offsetX;
+      this.ctrlY =
+        this.ctrlY + (e.y || e.changedTouches[0].clientY) - this.offsetY;
+      this.offsetX = 0;
+      this.offsetY = 0;
+    },
     // onCtrlpointerMove,
   },
   mounted() {
