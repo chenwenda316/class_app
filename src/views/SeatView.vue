@@ -5,7 +5,7 @@
  * @FilePath: \class_app_dev\src\views\SeatView.vue
 -->
 <template >
-  <div class="about" @touchend="onCtrlpointerUp" @pointerup="onCtrlpointerUp">
+  <div class="about"   @touchend="onCtrlpointerUp" @pointerup="onCtrlpointerUp">
     <svg
       ref="SVGref"
       viewBox="0 0 200 173.2051"
@@ -150,7 +150,7 @@
         v-model:value="changeValue"
         style="position: absolute; bottom: 16vh; right: 2.5vh; width: 20.5vh"
         @pointerdown.stop="() => {}"
-        @touchend.stop="() => {}"
+        @touchstart.stop="() => {}"
       >
         <template #prefix>变换</template>
       </n-input-number>
@@ -169,7 +169,7 @@
           right: 3vh;
         "
         @pointerdown.stop="() => {}"
-        @touchend.stop="() => {}"
+        @touchstart.stop="() => {}"
       />
       <template #footer>
         <n-switch
@@ -182,7 +182,7 @@
             background-color: transparent;
           "
           @pointerdown.stop="() => {}"
-          @touchend.stop="() => {}"
+          @touchstart.stop="() => {}"
         />
         <n-button
           type="success"
@@ -198,7 +198,7 @@
           "
           @click.stop="print"
           @pointerdown.stop="() => {}"
-          @touchend.stop="() => {}"
+          @touchstart.stop="() => {}"
         >
           打印
         </n-button>
@@ -216,7 +216,7 @@
         --n-rail-color: rgba(180, 180, 180, 1);
         left: 60px;
         margin-top: 60px;
-        top: 30px;
+        top: 30px;                                                                                                                                
       "
     />-->
   </div>
@@ -224,6 +224,7 @@
 <script>
 import { defineComponent, ref } from "vue";
 import md5 from "md5";
+import { debounce } from "lodash-es";
 
 const deskPositions = [
   //1
@@ -385,9 +386,10 @@ export default defineComponent({
       this.offsetX = e.x || e.touches[0].clientX;
       this.offsetY = e.y || e.touches[0].clientY;
     },
-    onCtrlpointerUp(e) {
-      console.log("eventu", e, devicePixelRatio, e.x, e.y);
-      console.log("eventu", devicePixelRatio, this.offsetX, this.offsetY);
+    onCtrlpointerUp(e){
+      // console.info(this)
+      // console.log("eventu", e, devicePixelRatio, e.x, e.y);
+      // console.log("eventu", devicePixelRatio, this.offsetX, this.offsetY);
       if (!this.onDrop) {
         return;
       }
@@ -402,15 +404,26 @@ export default defineComponent({
     // onCtrlpointerMove,
   },
   mounted() {
-    // window.$controller = new AbortController();
-    // window.addEventListener(
-    //   "beforeprint",
-    //   () => {
-    //     console.log("beforeprint");
-    //     this.$emit("changeCollapsedWidth", 0);
-    //   },
-    //   { signal: window.$controller.signal }
-    // );
+    window.$pcontroller = new AbortController();
+    window.addEventListener(
+      "pointermove",
+      debounce((e)=>{
+      // console.info(this)
+      // console.log("shabimove",  e.x, e.y,this.offsetX,this.offsetY,this.ctrlX,this.ctrlY);
+      // console.log("eventu", devicePixelRatio, this.offsetX, this.offsetY);
+      if (!this.onDrop) {
+        return;
+      }
+      this.onDrop = 1;
+      this.ctrlX =
+        this.ctrlX + (e.x || e.changedTouches[0].clientX) - this.offsetX;
+      this.ctrlY =
+        this.ctrlY + (e.y || e.changedTouches[0].clientY) - this.offsetY;
+      this.offsetX = (e.x || e.changedTouches[0].clientX);
+      this.offsetY = (e.y || e.changedTouches[0].clientY);
+    },10),
+      { signal: window.$pcontroller.signal }
+    );
     // window.addEventListener(
     //   "afterprint",
     //   () => {
@@ -421,23 +434,22 @@ export default defineComponent({
     // );
   },
   unmounted() {
-    // window.$controller.abort()
-    // window.$controller = undefined;
+    window.$pcontroller.abort()
+    delete window.$pcontroller ;
   },
 });
 </script>
 
 
 
-<style>
+<style scoped>
 .n-card {
-  position: absolute;
-  bottom: 1.5vh;
-  right: 3vh;
   width: 25.5vh;
   height: 30vh;
   border-radius: 2vh;
   background: rgba(255, 255, 255, 0.8);
+
+
 }
 
 .desk {
