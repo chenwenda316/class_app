@@ -170,6 +170,9 @@ export default {
         },
         {
           label: "孔祥晨", value: 5,
+        },
+        {
+          label: "许景宁", value: 6,
         }
     ]
     return {
@@ -232,7 +235,7 @@ export default {
         return ;
     },
     changeGroup(){
-        if(!this.groupValue){
+        if(this.groupValue<0){
             window.$message.error("请选择");
         }
         else{
