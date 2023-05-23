@@ -147,6 +147,7 @@ export default {
         [{name:"周姜祎",tags:["组长"]}, {name:"钟亚北",tags:["组员"]}, {name:"梁义",tags:["组员"]}, {name:"郭玥彤",tags:["组员"]}, {name:"魏雅萱",tags:["组员"]}],
         [{name:"高天鹤",tags:["组长"]}, {name:"沈奕帆",tags:["组员"]}, {name:"洪玮骏",tags:["组员"]}, {name:"张瀞匀",tags:["组员"]}, {name:"吴咏烜",tags:["组员"]}],
         [{name:"孔祥晨",tags:["组长"]}, {name:"何亦白",tags:["组员"]}, {name:"王艺",tags:["组员"]}, {name:"鲁临翾",tags:["组员"]}, {name:"孙妍",tags:["组员"]}],
+        [{name:"许景宁",tags:["组长"]}, {name:"过德麟",tags:["组员"]}, {name:"陈文达",tags:["黑板"]}, {name:"徐梓晨",tags:["黑板"]}, {name:"周鼎宸",tags:["扫地"]},{name:"李谨硕",tags:["摆烂"]}],
     ]
     let groupLeaders = [
         // {
