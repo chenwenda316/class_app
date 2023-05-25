@@ -98,7 +98,7 @@ export default {
         {name:"暂无",time:"23:59",type:""}],
         [
         {name:"英语",time:"8:00",type:""},
-        {name:"体育",time:"8:50",type:""},
+        {name:"游泳",time:"8:50",type:""},
         {name:"数学",time:"10:05",type:""},
         {name:"语文",time:"10:55",type:""},
         {name:"B2",time:"13:00",type:""},
@@ -115,14 +115,14 @@ export default {
         ],
         [
         {name:"B1",time:"8:00",type:"",duration:90},
-        {name:"体育",time:"10:05",type:""},
+        {name:"体活",time:"10:05",type:""},
         {name:"英语",time:"10:55",type:""},
         {name:"B2",time:"13:00",type:"",duration:90},
         {name:"B3",time:"14:45",type:"",duration:90},
         ],
         [
         {name:"英语",time:"8:00",type:"",duration:90},
-        {name:"体育",time:"10:05",type:""},
+        {name:"游泳",time:"10:05",type:""},
         {name:"数学",time:"10:55",type:""},
         {name:"语文",time:"13:00",type:""},
         {name:"B3",time:"13:50",type:""},
@@ -132,8 +132,8 @@ export default {
         [
         {name:"语文",time:"8:00",type:"",duration:90},
         {name:"数学",time:"10:05",type:"",duration:90},
-        {name:"音乐",time:"13:00",type:"",duration:90},
-        {name:"体选",time:"14:45",type:"",duration:90},
+        {name:"美术",time:"13:00",type:"",duration:90},
+        {name:"体活",time:"14:45",type:"",duration:90},
         ],
         [
         {name:"暂无",time:"11:45:14",type:""},
@@ -141,7 +141,7 @@ export default {
         {name:"暂无",time:"23:59",type:""}]
     ];
     let shiftDataOrigin = [
-        [{name:"上官许铨",tags:["组长"]}, {name:"王梓祺",tags:["组员"]}, {name:"马子润",tags:["组员"]}, {name:"李桐瑶",tags:["组员"]}, {name:"郜韵然",tags:["组员"]}],
+        [{name:"上官许铨",tags:["组长"]}, {name:"王梓淇",tags:["组员"]}, {name:"马子润",tags:["组员"]}, {name:"李桐瑶",tags:["组员"]}, {name:"郜韵然",tags:["组员"]}],
         [{name:"郑宇轩",tags:["组长"]}, {name:"张家睿",tags:["组员"]}, {name:"王健祺",tags:["组员"]}, {name:"肖雅迪",tags:["组员"]}, {name:"许畋",tags:["组员"]}],
         [{name:"严绍恒",tags:["组长"]}, {name:"周成豫",tags:["组员"]}, {name:"王梓一",tags:["组员"]}, {name:"许琳章",tags:["组员"]}, {name:"赵文婕",tags:["组员"]}],
         [{name:"周姜祎",tags:["组长"]}, {name:"钟亚北",tags:["组员"]}, {name:"梁义",tags:["组员"]}, {name:"郭玥彤",tags:["组员"]}, {name:"魏雅萱",tags:["组员"]}],
