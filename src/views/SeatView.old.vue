@@ -87,26 +87,35 @@
       ></rect>
       <!-- for class 13(ntr) -->
       <rect
-        :x="48"
-        :y="153"
-        :width="16"
-        :height="10"
-        fill="none"
-        stroke="black"
-        stroke-width="0.3"
-      ></rect>
-      <rect
-        :x="112"
-        :y="153"
-        :width="16"
-        :height="10"
-        fill="none"
-        stroke="black"
-        stroke-width="0.3"
-      ></rect>
-      <rect
         :x="128"
-        :y="153"
+        :y="33"
+        :width="16"
+        :height="10"
+        fill="none"
+        stroke="black"
+        stroke-width="0.3"
+      ></rect>
+      <rect
+        :x="144"
+        :y="33"
+        :width="16"
+        :height="10"
+        fill="none"
+        stroke="black"
+        stroke-width="0.3"
+      ></rect>
+      <rect
+        :x="160"
+        :y="53"
+        :width="16"
+        :height="10"
+        fill="none"
+        stroke="black"
+        stroke-width="0.3"
+      ></rect>
+      <rect
+        :x="160"
+        :y="73"
         :width="16"
         :height="10"
         fill="none"
@@ -249,25 +258,25 @@ const deskPositions = [
   { x: 100, y: 140 },
   { x: 100, y: 160 },
   //5
-  { x: 120, y: 40 },
-  { x: 120, y: 60 },
-  { x: 120, y: 80 },
-  { x: 120, y: 100 },
-  { x: 120, y: 120 },
-  { x: 120, y: 140 },
+  { x: 116, y: 40 },
+  { x: 116, y: 60 },
+  { x: 116, y: 80 },
+  { x: 116, y: 100 },
+  { x: 116, y: 120 },
+  { x: 116, y: 140 },
+  { x: 116, y: 160 },
   //6
-  { x: 136, y: 140 },
-  { x: 136, y: 40 },
   { x: 136, y: 60 },
   { x: 136, y: 80 },
   { x: 136, y: 100 },
   { x: 136, y: 120 },
+  { x: 136, y: 140 },
   //7
-  { x: 156, y: 60 },
-  { x: 156, y: 80 },
-  { x: 156, y: 100 },
-  { x: 156, y: 120 },
-  { x: 156, y: 140 },
+  { x: 152, y: 60 },
+  { x: 152, y: 80 },
+  { x: 152, y: 100 },
+  { x: 152, y: 120 },
+  { x: 152, y: 140 },
 ];
 // const stuPositions = JSON.parse(JSON.stringify(deskPositions));
 // stuPositions[0].name = "王艺"
