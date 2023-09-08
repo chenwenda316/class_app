@@ -1,156 +1,69 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2022-12-03 17:57:22
- * @LastEditTime: 2023-02-25 20:41:42
+ * @LastEditTime: 2023-09-08 21:35:01
  * @FilePath: \class_app_dev\src\views\SeatView.vue
 -->
 <template >
-  <div class="about"   @touchend="onCtrlpointerUp" @pointerup="onCtrlpointerUp">
-    <svg
-      ref="SVGref"
-      viewBox="0 0 200 173.2051"
-      height="100%"
-      width="min(calc(100vh * 1.1546 - 60px * 1.1546), calc(100vw - 124px))"
-      style="
+  <div class="about" @touchend="onCtrlpointerUp" @pointerup="onCtrlpointerUp">
+    <svg ref="SVGref" viewBox="0 0 200 173.2051" height="100%"
+      width="min(calc(100vh * 1.1546 - 60px * 1.1546), calc(100vw - 124px))" style="
         display: block;
         margin: auto;
         transform-origin: 50% 70%;
         font-size: 7px;
-      "
-      :style="{
+      " :style="{
         scale: scaleValue / 100 + 1,
         rotate: rotated ? '180deg' : '',
         'transform-origin': '50% ' + yValue + '%',
-      }"
-    >
+      }">
       <!-- <svg viewBox="0 0 200 173.2051" height="100%" width="min(calc(100vh * 1.1546 - 60px * 1.1546), calc(100vw - 124px))" style="display:block;margin: auto;transform-origin: 50% 70%;" :style="{ scale: scaleValue/100 + 1 ,font-color : 'red'}"> -->
-      <polygon
-        points="50,0 150,0 200,86.6025 150,173.2051 50,173.2051 0,86.6025"
-        style="fill: white"
-      />
-      <polyline
-        points="50,0 150,0 200,86.6025 150,173.2051 50,173.2051 0,86.6025 50,0"
-        style="fill: none; stroke: black; stroke-width: 0.3"
-      />
+      <polygon points="50,0 150,0 200,86.6025 150,173.2051 50,173.2051 0,86.6025" style="fill: white" />
+      <polyline points="50,0 150,0 200,86.6025 150,173.2051 50,173.2051 0,86.6025 50,0"
+        style="fill: none; stroke: black; stroke-width: 0.3" />
       <polygon
         points="35.6423,24.8682 38.6423,26.3682 14.289,68.5696 27.289,77.5696 27.289,95.6355 14.289,104.6355  38.6423,146.8369   35.6423,148.3369  0,86.6025"
-        style="fill: grey"
-      />
-      <polygon
-        style="fill: grey"
-        points="175,43.3012 200,86.6025 175,129.9038 171,127.2371 195.892,84.6025 173,44.6345"
-      ></polygon>
-      <polyline
-        points="40.2813,16.8332 58.6393,26.3682 141.3607,26.3682 159.7186,16.8332"
-        style="fill: none; stroke: black; stroke-width: 0.3"
-      />
-      <polygon
-        points="85,26.3682 115,26.3682 115,13.3682 85,13.3682 "
-        style="fill: white"
-        stroke="black"
-        stroke-width="0.3"
-      />
+        style="fill: grey" />
+      <polygon style="fill: grey" points="175,43.3012 200,86.6025 175,129.9038 171,127.2371 195.892,84.6025 173,44.6345">
+      </polygon>
+      <polyline points="40.2813,16.8332 58.6393,26.3682 141.3607,26.3682 159.7186,16.8332"
+        style="fill: none; stroke: black; stroke-width: 0.3" />
+      <polygon points="85,26.3682 115,26.3682 115,13.3682 85,13.3682 " style="fill: white" stroke="black"
+        stroke-width="0.3" />
       <!-- <text x="55" y="90" fill="black" transform="rotate(-15 80,80)">Coming soon.</text> -->
-      <text
-        x="100"
-        y="23.3682"
-        style="font-size: 10px; text-anchor: middle"
-        :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 20 + ')' : ''"
-      >
+      <text x="100" y="23.3682" style="font-size: 10px; text-anchor: middle"
+        :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 20 + ')' : ''">
         讲台
       </text>
-      <text
-        v-for="desk in studentPositions"
-        :key="desk"
-        :x="desk.x"
-        :y="desk.y"
-        class="desk"
-        :style="{ fontSize: (desk.name.length == 4 ? 3.9 : 4.9) + 'px' }"
-        :transform="
-          rotated
-            ? 'rotate(' + 180 + ' ' + desk.x + ',' + (desk.y - 1.9) + ')'
-            : ''
-        "
-      >
+      <text v-for="desk in studentPositions" :key="desk" :x="desk.x" :y="desk.y" class="desk"
+        :style="{ fontSize: (desk.name.length == 4 ? 3.9 : 4.9) + 'px' }" :transform="rotated
+          ? 'rotate(' + 180 + ' ' + desk.x + ',' + (desk.y - 1.9) + ')'
+          : ''
+          ">
         {{ desk.name || "null" }}
       </text>
-      <rect
-        v-for="rect in studentPositions"
-        :key="rect"
-        :x="rect.x - deskWidth / 2"
-        :y="rect.y - deskHeight / 2 - 2"
-        :width="deskWidth"
-        :height="deskHeight"
-        stroke="black"
-        stroke-width="0.3"
-        fill="none"
-      ></rect>
+      <rect v-for="rect in studentPositions" :key="rect" :x="rect.x - deskWidth / 2" :y="rect.y - deskHeight / 2 - 2"
+        :width="deskWidth" :height="deskHeight" stroke="black" stroke-width="0.3" fill="none"></rect>
       <!-- for class 13(ntr) -->
-      <rect
-        :x="48"
-        :y="153"
-        :width="16"
-        :height="10"
-        fill="none"
-        stroke="black"
-        stroke-width="0.3"
-      ></rect>
-      <rect
-        :x="112"
-        :y="153"
-        :width="16"
-        :height="10"
-        fill="none"
-        stroke="black"
-        stroke-width="0.3"
-      ></rect>
-      <rect
-        :x="128"
-        :y="153"
-        :width="16"
-        :height="10"
-        fill="none"
-        stroke="black"
-        stroke-width="0.3"
-      ></rect>
-      <text
-        x="100"
-        y="4"
-        style="font-size: 3px; text-anchor: middle"
-        :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 4 + ')' : ''"
-      >
+      <rect :x="48" :y="153" :width="16" :height="10" fill="none" stroke="black" stroke-width="0.3"></rect>
+      <rect :x="112" :y="153" :width="16" :height="10" fill="none" stroke="black" stroke-width="0.3"></rect>
+      <rect :x="128" :y="153" :width="16" :height="10" fill="none" stroke="black" stroke-width="0.3"></rect>
+      <text x="100" y="4" style="font-size: 3px; text-anchor: middle"
+        :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 4 + ')' : ''">
         Changed {{ changeValue }} times. Developed by
         {{ developer.join(", ") }}. based on Vue3.
       </text>
     </svg>
-    <n-card
-      :bordered="false"
-      title="控制台"
-      header-style="font-size: 3vh"
-      header-extra-style="font-size: 2vh"
-      :style="{
-        top: ctrlY / devicePixelRatio + 'px',
-        left: ctrlX / devicePixelRatio + 'px',
-      }"
-      class="ctrl"
-      @pointerdown="onCtrlpointerDown"
-      @touchstart="onCtrlpointerDown"
-    >
+    <n-card :bordered="false" title="控制台" header-style="font-size: 3vh" header-extra-style="font-size: 2vh" :style="{
+      top: ctrlY / devicePixelRatio + 'px',
+      left: ctrlX / devicePixelRatio + 'px',
+    }" class="ctrl" @pointerdown="onCtrlpointerDown" @touchstart="onCtrlpointerDown">
       <template #header-extra> Console </template>
-      <n-input-number
-        v-model:value="changeValue"
-        style="position: absolute; bottom: 16vh; right: 2.5vh; width: 20.5vh"
-        @pointerdown.stop="() => {}"
-        @touchstart.stop="() => {}"
-      >
+      <n-input-number v-model:value="changeValue" style="position: absolute; bottom: 16vh; right: 2.5vh; width: 20.5vh"
+        @pointerdown.stop="() => { }" @touchstart.stop="() => { }">
         <template #prefix>变换</template>
       </n-input-number>
-      <n-slider
-        v-model:value="scaleValue"
-        step="1"
-        :default-value="0"
-        :format-tooltip="formatTooltip"
-        style="
+      <n-slider v-model:value="scaleValue" step="1" :default-value="0" :format-tooltip="formatTooltip" style="
           width: 20vh;
           position: absolute;
           --n-rail-color: rgba(180, 180, 180, 1);
@@ -158,26 +71,16 @@
           margin-top: 60px;
           bottom: 11vh;
           right: 3vh;
-        "
-        @pointerdown.stop="() => {}"
-        @touchstart.stop="() => {}"
-      />
+        " @pointerdown.stop="() => { }" @touchstart.stop="() => { }" />
       <template #footer>
-        <n-switch
-          v-model:value="rotated"
-          style="
+        <n-switch v-model:value="rotated" style="
             position: absolute;
             bottom: 4.5vh;
             left: 3vh;
             --n-rail-color: rgba(180, 180, 180, 1);
             background-color: transparent;
-          "
-          @pointerdown.stop="() => {}"
-          @touchstart.stop="() => {}"
-        />
-        <n-button
-          type="success"
-          style="
+          " @pointerdown.stop="() => { }" @touchstart.stop="() => { }" />
+        <n-button type="success" style="
             position: absolute;
             right: 3vh;
             bottom: 3.7vh;
@@ -186,11 +89,7 @@
             border-radius: 0.8vh;
             align-items: center;
             font-size: 2vh;
-          "
-          @click.stop="print"
-          @pointerdown.stop="() => {}"
-          @touchstart.stop="() => {}"
-        >
+          " @click.stop="print" @pointerdown.stop="() => { }" @touchstart.stop="() => { }">
           打印
         </n-button>
       </template>
@@ -272,14 +171,14 @@ const deskPositions = [
 // const stuPositions = JSON.parse(JSON.stringify(deskPositions));
 // stuPositions[0].name = "王艺"
 const studentMap = [
-  ["徐梓宸", "高天鹤", "魏雅萱", "严绍恒", "梁义", "胡紫雯"],
-  ["周成豫", "洪玮骏", "郜韵然", "钟亚北", "魏嘉禾"],
-  ["王艺", "吕宬恺", "马诗博", "徐子轩", "沈奕帆", "上官许铨", "陈文达"],
-  ["王梓一", "许畋", "郭玥彤", "肖雅迪", "李桐瑶", "吴咏烜", "赵文婕"],
-  ["周姜祎", "马子润", "李知恒", "单绎宁", "过德麟", "王梓淇"],
-  ["王健祺", "张家睿", "孙妍", "何亦白", "许景宁", "鲁临翾"],
-  ["许琳章", "李谨硕", "周鼎宸", "张瀞匀", "孔祥晨", "郑宇轩"],
-];
+  ["张家睿", "周姜祎", "李谨硕", "魏雅萱", "高天鹤", "孙妍"],
+  ["洪玮骏", "李桐瑶", "许琳章", "吴咏烜", "上官许铨"],
+  ["何亦白", "鲁临翾", "张瀞匀", "肖雅迪", "孔祥晨", "严绍恒", "周成豫"],
+  ["郑宇轩", "王梓淇", "郭玥彤", "胡紫雯", "许景宁", "周鼎宸", "陈文达"],
+  ["徐梓宸", "梁义", "钟亚北", "马子润", "过德麟", "魏嘉禾"],
+  ["王梓一", "许畋", "单绎宁", "郜韵然", "王健祺", "赵文婕"],
+  ["李知恒", "王艺", "吕宬恺", "马诗博", "徐子轩", "沈奕帆"],];
+
 
 export default defineComponent({
   setup() {
@@ -377,7 +276,7 @@ export default defineComponent({
       this.offsetX = e.x || e.touches[0].clientX;
       this.offsetY = e.y || e.touches[0].clientY;
     },
-    onCtrlpointerUp(e){
+    onCtrlpointerUp(e) {
       // console.info(this)
       // console.log("eventu", e, devicePixelRatio, e.x, e.y);
       // console.log("eventu", devicePixelRatio, this.offsetX, this.offsetY);
@@ -398,21 +297,21 @@ export default defineComponent({
     window.$pcontroller = new AbortController();
     window.addEventListener(
       "pointermove",
-      debounce((e)=>{
-      // console.info(this)
-      // console.log("shabimove",  e.x, e.y,this.offsetX,this.offsetY,this.ctrlX,this.ctrlY);
-      // console.log("eventu", devicePixelRatio, this.offsetX, this.offsetY);
-      if (!this.onDrop) {
-        return;
-      }
-      this.onDrop = 1;
-      this.ctrlX =
-        this.ctrlX + (e.x || e.changedTouches[0].clientX) - this.offsetX;
-      this.ctrlY =
-        this.ctrlY + (e.y || e.changedTouches[0].clientY) - this.offsetY;
-      this.offsetX = (e.x || e.changedTouches[0].clientX);
-      this.offsetY = (e.y || e.changedTouches[0].clientY);
-    },10),
+      debounce((e) => {
+        // console.info(this)
+        // console.log("shabimove",  e.x, e.y,this.offsetX,this.offsetY,this.ctrlX,this.ctrlY);
+        // console.log("eventu", devicePixelRatio, this.offsetX, this.offsetY);
+        if (!this.onDrop) {
+          return;
+        }
+        this.onDrop = 1;
+        this.ctrlX =
+          this.ctrlX + (e.x || e.changedTouches[0].clientX) - this.offsetX;
+        this.ctrlY =
+          this.ctrlY + (e.y || e.changedTouches[0].clientY) - this.offsetY;
+        this.offsetX = (e.x || e.changedTouches[0].clientX);
+        this.offsetY = (e.y || e.changedTouches[0].clientY);
+      }, 10),
       { signal: window.$pcontroller.signal }
     );
     // window.addEventListener(
@@ -426,7 +325,7 @@ export default defineComponent({
   },
   unmounted() {
     window.$pcontroller.abort()
-    delete window.$pcontroller ;
+    delete window.$pcontroller;
   },
 });
 </script>
