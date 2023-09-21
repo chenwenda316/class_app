@@ -1,7 +1,7 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2023-09-21 22:31:37
- * @LastEditTime: 2023-09-21 23:30:48
+ * @LastEditTime: 2023-09-21 23:35:27
  * @FilePath: \class_app_dev\src\views\blackboardView.vue
 -->
 <template>
@@ -45,8 +45,8 @@ function defullscreen() {
 setInterval(() => {
     let n_t = new Date();
     t.value = n_t.getTime();
-    window.close();
     if (n_t.getHours() == 18 && n_t.getMinutes() == 59) {
+        document.exitFullscreen()
         window.close();
     }
     // console.log(f(n_t.getHours()) + ':' + f(n_t.getMinutes()) + ':' + f(n_t.getSeconds()));
