@@ -1,7 +1,7 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2022-12-02 21:34:45
- * @LastEditTime: 2023-02-24 23:17:37
+ * @LastEditTime: 2023-09-21 22:33:47
  * @FilePath: \class_app_dev\src\views\HomeView.vue
 -->
 <template>
@@ -32,13 +32,13 @@
                 导航
             </n-divider> -->
                 <n-space>
-                    <n-button size="large" strong secondary round type="info"  @click="routeTo('404')">
+                    <n-button size="large" strong secondary round type="info"  @click="routeTo('ddt')">
                         <template #icon>
                             <n-icon>
                                 <file-icon />
                             </n-icon>
                         </template>
-                        班级网盘
+                        动态桌面
                     </n-button>
                     <n-button size="large" strong secondary round type="info" @click="routeTo('seat')">
                         <template #icon>
@@ -48,13 +48,13 @@
                         </template>
                         座位排序
                     </n-button>
-                    <n-button size="large" strong secondary round type="info" @click="routeTo('random')">
+                    <n-button size="large" strong secondary round type="info" @click="routeTo('blackboard')">
                         <template #icon>
                             <n-icon>
                                 <shuffle-icon />
                             </n-icon>
                         </template>
-                        抽学号
+                        黑板
                     </n-button>
                 </n-space>
 
