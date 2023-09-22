@@ -1,13 +1,13 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2023-01-12 21:44:39
- * @LastEditTime: 2023-09-08 22:43:38
+ * @LastEditTime: 2023-09-22 22:30:18
  * @FilePath: \class_app_dev\src\views\ToolsView.vue
 -->
 <template>
   <n-card :bordered="false" title="欢迎！" style="backdrop-filter: blur(10px);background-color:rgba(255,255,255,0.8)">
     <template #header-extra>
-      V2.8
+      V2.92
     </template>
     <!-- {{ title }}<br/>{{ author }}<br/><span v-for="(item) in content"> {{item}}<br/></span> -->
     {{ main }}
