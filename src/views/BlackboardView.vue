@@ -1,7 +1,7 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2023-09-21 22:31:37
- * @LastEditTime: 2023-09-21 23:35:27
+ * @LastEditTime: 2023-09-22 22:23:48
  * @FilePath: \class_app_dev\src\views\blackboardView.vue
 -->
 <template>
@@ -11,8 +11,8 @@
         <br />
         <br />
         <br />
-        <n-time :time="t" format="HH:mm" style="color: white;font-size:7rem" /><br />
-        <n-time :time="t" format="yyyy / MM / dd" style="color: white;font-size:1.5rem" />
+        <n-time :time="t" format="HH:mm" style="color: whitesmoke; font-size:7rem" /><br />
+        <n-time :time="t" format="yyyy / MM / dd" style="color: whitesmoke; font-size:1.5rem" />
         <br />
         <br />
         <br />
@@ -58,6 +58,8 @@ setInterval(() => {
 }, 1000);
 
 onMounted(() => {
+    let n_t = new Date();
+    t.value = n_t.getTime();
     fullscreen()
 })
 
