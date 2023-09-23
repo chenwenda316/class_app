@@ -1,18 +1,13 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2023-09-21 22:31:37
- * @LastEditTime: 2023-09-21 23:35:27
+ * @LastEditTime: 2023-09-22 22:23:48
  * @FilePath: \class_app_dev\src\views\blackboardView.vue
 -->
 <template>
     <n-card ref="cardRef" :bordered="false" style="text-align: center">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <n-time :time="t" format="HH:mm" style="color: white;font-size:7rem" /><br />
-        <n-time :time="t" format="yyyy / MM / dd" style="color: white;font-size:1.5rem" />
+        <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size:15vh" /><br />
+        <n-time :time="t" format="yyyy 年 MM 月 dd 日" style="color: whitesmoke;font-size:3vh" />
         <br />
         <br />
         <br />
@@ -58,22 +53,23 @@ setInterval(() => {
 }, 1000);
 
 onMounted(() => {
+    let n_t = new Date();
+    t.value = n_t.getTime();
     fullscreen()
 })
 
 </script>
 
 <style scoped>
-    .n-card {
-        font-family: 'PARaDOS', sans-serif;
-        background-color: rgba(0, 0, 0, 1);
-        height: 100vh;
-    }
+.n-card {
+    background-color: rgba(0, 0, 0, 1);
+    height: 100vh;
+}
 
-    .div {
-        text-align: center;
-        width: 100%;
-        color: white;
-    }
+.div {
+    text-align: center;
+    width: 100%;
+    color: white;
+}
 </style>
 
