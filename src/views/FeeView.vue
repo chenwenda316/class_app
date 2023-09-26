@@ -4,7 +4,7 @@
             <template #header-extra>
             Class fee details
             </template>
-            施工中
+            正在施工中……
         </n-card>
     </div>
 </template>
