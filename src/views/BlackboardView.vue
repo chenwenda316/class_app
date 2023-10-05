@@ -1,7 +1,7 @@
 <!--
  * @Author: chenwenda316
  * @Date: 2023-09-21 22:31:37
- * @LastEditTime: 2023-09-22 22:23:48
+ * @LastEditTime: 2023-10-05 22:26:20
  * @FilePath: \class_app_dev\src\views\blackboardView.vue
 -->
 <template>
@@ -18,10 +18,39 @@
         <n-button strong secondary @click="defullscreen">
             还原
         </n-button>
+        <br />
+        <n-space>
+            <n-button circle type="error" @click="close">
+                <template #icon>
+                    <n-icon>
+                        <Close />
+                    </n-icon>
+                </template>
+            </n-button>
+            <n-button circle type="success" @click="defullscreen">
+                <template #icon>
+                    <n-icon>
+                        <Remove />
+                    </n-icon>
+                </template>
+            </n-button>
+            <n-button circle type="warning" @click="fullscreen">
+                <template #icon>
+                    <n-icon>
+                        <Square />
+                    </n-icon>
+                </template>
+            </n-button>
+        </n-space>
     </n-card>
 </template>
 
 <script setup>
+import {
+    CloseOutline as Close,
+    RemoveOutline as Remove,
+    StopOutline as Square,
+} from "@vicons/ionicons5";
 import { ref } from "vue"
 
 const cardRef = ref(0)
@@ -42,6 +71,9 @@ function defullscreen() {
     document.exitFullscreen()
 }
 
+function close() {
+    window.close();
+}
 setInterval(() => {
     let n_t = new Date();
     t.value = n_t.getTime();
@@ -70,6 +102,12 @@ onMounted(() => {
     text-align: center;
     width: 100%;
     color: white;
+}
+
+.n-space{
+    position:absolute;
+    top:1rem;
+    left: 1rem;
 }
 </style>
 
