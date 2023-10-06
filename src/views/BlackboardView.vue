@@ -27,14 +27,14 @@
                     </n-icon>
                 </template>
             </n-button>
-            <n-button circle type="success" @click="defullscreen">
+            <n-button circle type="warning" @click="defullscreen">
                 <template #icon>
                     <n-icon>
                         <Remove />
                     </n-icon>
                 </template>
             </n-button>
-            <n-button circle type="warning" @click="fullscreen">
+            <n-button circle type="success" @click="fullscreen">
                 <template #icon>
                     <n-icon>
                         <Square />
