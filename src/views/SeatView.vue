@@ -33,6 +33,10 @@
         style="fill: none; stroke: black; stroke-width: 0.3" />
       <polygon points="85,26.3682 115,26.3682 115,13.3682 85,13.3682 " style="fill: white" stroke="black"
         stroke-width="0.3" />
+      <path d="M168.8,32.57c-3.99,2.3-9.06,1.01-11.47-2.88-.05-.08-.09-.16-.14-.23l7.36-4.25"
+        style="fill: none; stroke: black; stroke-width: 0.3" />
+      <path d="M164.6,148l-7.4-4.2c0.1-0.1,0.1-0.1,0.1-0.2c2.4-3.9,7.5-5.2,11.5-2.9"
+        style="fill: none; stroke: black; stroke-width: 0.3" />
       <!-- <text x="55" y="90" fill="black" transform="rotate(-15 80,80)">Coming soon.</text> -->
       <text x="100" y="23.3682" style="font-size: 10px; text-anchor: middle"
         :transform="rotated ? 'rotate(' + 180 + ' ' + 100 + ',' + 20 + ')' : ''">
