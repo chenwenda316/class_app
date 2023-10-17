@@ -140,9 +140,9 @@ export default {
             [{ name: "周姜祎", tags: ["组长"] }, { name: "陈文达", tags: ["组员"] }, { name: "王梓淇", tags: ["组员"] }, { name: "肖雅迪", tags: ["组员"] }, { name: "吴咏烜", tags: ["组员"] }],
             [{ name: "徐子轩", tags: ["组长"] }, { name: "孔祥晨", tags: ["组员"] }, { name: "马子润", tags: ["组员"] }, { name: "张瀞匀", tags: ["组员"] }, { name: "孙妍", tags: ["组员"] }],
             [{ name: "洪玮骏", tags: ["组长"] }, { name: "梁义", tags: ["组员"] }, { name: "钟亚北", tags: ["组员"] }, { name: "李桐瑶", tags: ["组员"] }, { name: "郜韵然", tags: ["组员"] }],
-            [{ name: "魏嘉禾", tags: ["组长"] }, { name: "张家睿", tags: ["组员"] }, { name: "许景宁", tags: ["组员"] }, { name: "鲁临翾", tags: ["组员"] }, { name: "徐畋", tags: ["组员"] }],
+            [{ name: "魏嘉禾", tags: ["组长"] }, { name: "张家睿", tags: ["组员"] }, { name: "许景宁", tags: ["组员"] }, { name: "鲁临翾", tags: ["组员"] }, { name: "许畋", tags: ["组员"] }],
             [{ name: "马诗博", tags: ["组长"] }, { name: "郑宇轩", tags: ["组员"] }, { name: "李谨硕", tags: ["组员"] }, { name: "过德麟", tags: ["组员"] }, { name: "赵文婕", tags: ["组员"] }],
-            [{ name: "吕宬恺", tags: ["组长"] }, { name: "周鼎宸", tags: ["组员"] }, { name: "徐梓晨", tags: ["组员"] }, { name: "周成豫", tags: ["组员"] }, { name: "魏雅萱", tags: ["组员"] }],
+            [{ name: "吕宬恺", tags: ["组长"] }, { name: "周鼎宸", tags: ["组员"] }, { name: "徐梓宸", tags: ["组员"] }, { name: "周成豫", tags: ["组员"] }, { name: "魏雅萱", tags: ["组员"] }],
         ]
         let groupLeaders = [
             // {
