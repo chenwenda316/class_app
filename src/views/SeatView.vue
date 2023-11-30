@@ -169,11 +169,11 @@ const deskPositions = [
   { x: 136, y: 100 },
   { x: 136, y: 120 },
   //7
-  { x: 28, y: 90 },
-  { x: 156, y: 60 },
-  { x: 156, y: 80 },
-  { x: 156, y: 100 },
-  { x: 156, y: 120 }
+  { x: 28, y: 100 },
+  { x: 28, y: 80 },
+  { x: 156, y: 70 },
+  { x: 156, y: 90 },
+  { x: 156, y: 110 }
 ];
 // const stuPositions = JSON.parse(JSON.stringify(deskPositions));
 // stuPositions[0].name = "王艺"
