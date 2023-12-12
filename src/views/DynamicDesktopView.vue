@@ -1,6 +1,7 @@
 <template>
     <div
-        style="margin:auto;background: 50% 100%/cover url('https://s1.ax1x.com/2023/02/16/pS7vzkV.jpg');height:calc(100vh - 60px);">
+        fugestyle="margin:auto;background: 50% 100%/cover url('https://z1.ax1x.com/2023/12/12/piWBto9.jpg');height:calc(100vh - 60px);"
+        style="margin:auto;background:url('https://z1.ax1x.com/2023/12/12/piWBYdJ.jpg');background-size: 11.4514%;height:calc(100vh - 60px);">
         <n-grid cols="15" :x-gap="30" item-responsive>
             <n-grid-item span="4">
                 <n-card :bordered="false" style="backdrop-filter: blur(10px);background-color:rgba(255,255,255,0.7)">
