@@ -1,7 +1,7 @@
 <template>
     <div
-        fugestyle="margin:auto;background: 50% 100%/cover url('https://z1.ax1x.com/2023/12/12/piWBto9.jpg');height:calc(100vh - 60px);"
-        style="margin:auto;background:url('https://z1.ax1x.com/2023/12/12/piWBYdJ.jpg');background-size: 11.4514%;height:calc(100vh - 60px);">
+        style="margin:auto;background: 50% 100%/cover url('https://s11.ax1x.com/2023/02/16/pS7vzkV.jpg');height:calc(100vh - 60px);"
+        fugestyle="margin:auto;background:url('https://z1.ax1x.com/2023/12/12/piWBYdJ.jpg');background-size: 11.4514%;height:calc(100vh - 60px);">
         <n-grid cols="15" :x-gap="30" item-responsive>
             <n-grid-item span="4">
                 <n-card :bordered="false" style="backdrop-filter: blur(10px);background-color:rgba(255,255,255,0.7)">
@@ -27,6 +27,9 @@
 
             </n-grid-item>
             <n-grid-item span="7">
+                <n-card :bordered="false" style="backdrop-filter: blur(10px);background-color:rgba(255,255,255,0.7)">
+                    <div class="vhsizel" style="width:100%;text-align: center;font-size: 3vh;">距离高考还有 <n-tag :bordered="false"  type="error" >{{ leftDay }}</n-tag> 天</div>
+                </n-card>
                 <img src="https://s1.ax1x.com/2023/02/16/pS7zeDs.png" class="micon" @click="imgOnClick" />
             </n-grid-item>
             <n-grid-item span="2">
@@ -184,6 +187,7 @@ export default {
             lastClickTime: 0,
             groupLeaders,
             groupValue: null,
+            leftDay:0,
         }
     },
     computed: {
@@ -255,6 +259,13 @@ export default {
         this.$emit('changeCollapsedWidth', 0)
         delete window.$devMsg;
         delete window.$msto;
+        //gaokao
+        let magicTicket=1717603200000;
+        let nowTicket=new Date();
+        let leftTicket=magicTicket-nowTicket;
+        leftTicket/=1000*60*60*24;
+        leftTicket=Math.floor(leftTicket);
+        this.leftDay=leftTicket;
         setInterval(() => {
             for (let i in this.classData) {
                 let nDate = new Date();

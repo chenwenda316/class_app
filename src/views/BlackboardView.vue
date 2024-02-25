@@ -8,10 +8,9 @@
     <n-card ref="cardRef" :bordered="false" style="text-align: center">
         <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size:15vh" /><br />
         <n-time :time="t" format="yyyy 年 MM 月 dd 日" style="color: whitesmoke;font-size:3vh" />
-        <br />
-        <br />
-        <br />
-        <br />
+        <br>
+        <span style="color: whitesmoke;font-size:10vh">自习时间，保持安静</span>
+        <br>
         <n-button strong secondary @click="fullscreen">
             全屏
         </n-button>
