@@ -27,8 +27,8 @@
 
             </n-grid-item>
             <n-grid-item span="7">
-                <n-card :bordered="false" style="backdrop-filter: blur(10px);background-color:rgba(255,255,255,0.7)">
-                    <div class="vhsizel" style="width:100%;text-align: center;font-size: 3vh;">距离高考还有 <n-tag :bordered="false"  type="error" >{{ leftDay }}</n-tag> 天</div>
+                <n-card :bordered="false" style="backdrop-filter: blur(10px);background-color:rgba(255,255,255,0.7);width: 50%;margin: auto;">
+                    <div class="vhsizel" style="width:100%;text-align: center;font-size: 3vh;">距离高考还有 <span style="color: darkred;background-color:rgba(255,0,0,0.15);" > {{ leftDay }} </span> 天</div>
                 </n-card>
                 <img src="https://s1.ax1x.com/2023/02/16/pS7zeDs.png" class="micon" @click="imgOnClick" />
             </n-grid-item>
