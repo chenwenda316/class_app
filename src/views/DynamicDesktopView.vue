@@ -260,7 +260,7 @@ export default {
         delete window.$devMsg;
         delete window.$msto;
         //gaokao
-        let magicTicket=1717603200000;
+        let magicTicket=1717603200000+2*24*60*60*1000;
         let nowTicket=new Date();
         let leftTicket=magicTicket-nowTicket;
         leftTicket/=1000*60*60*24;
