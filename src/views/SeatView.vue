@@ -172,14 +172,15 @@ const deskPositions = [
   { x: 28, y: 70 },
   { x: 28, y: 90 },
   { x: 28, y: 110 },
-  { x: 156, y: 80 },
-  { x: 156, y: 100 }
+  { x: 156, y: 70 },
+  { x: 156, y: 90 },
+  { x: 156, y: 110}
 ];
 // const stuPositions = JSON.parse(JSON.stringify(deskPositions));
 // stuPositions[0].name = "王艺"
 const studentMap = [
   ["张家睿", "周姜祎", "李谨硕", "魏雅萱", "高天鹤", "孙妍"],
-  ["洪玮骏", "李桐瑶", "许琳章", "吴咏烜", "上官许铨"],
+  ["洪玮骏", "李桐瑶", "许琳章", "吴咏烜", "上官许铨", "陈艾鹏"],
   ["何亦白", "鲁临翾", "张瀞匀", "肖雅迪", "孔祥晨", "严绍恒", "周成豫"],
   ["郑宇轩", "王梓淇", "郭玥彤", "胡紫雯", "许景宁", "周鼎宸", "陈文达"],
   ["徐梓宸", "梁义", "钟亚北", "马子润", "过德麟", "魏嘉禾"],
@@ -234,7 +235,8 @@ export default defineComponent({
       });
 
       let randomStudent = [];
-      let deleteCount = [1, 1, 2, 2, 2, 0, 0];
+      //let deleteCount = [1, 1, 2, 2, 2, 0, 0];
+      let deleteCount = [];
       changedStudentMap.forEach((array, index) => {
         randomStudent.push(...array.slice(5));
         changedStudentMap[index] = array.slice(0, 5);
