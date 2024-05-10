@@ -236,7 +236,7 @@ export default defineComponent({
 
       let randomStudent = [];
       //let deleteCount = [1, 1, 2, 2, 2, 0, 0];
-      let deleteCount = [];
+      let deleteCount = [];//114514
       changedStudentMap.forEach((array, index) => {
         randomStudent.push(...array.slice(5));
         changedStudentMap[index] = array.slice(0, 5);
