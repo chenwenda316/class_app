@@ -6,15 +6,11 @@
 -->
 <template>
     <n-card ref="cardRef" :bordered="false" style="text-align: center">
-        <br>
-        <br>
-        <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size: 18vh;font-weight: 100" /><br />
-        <n-time :time="t" format="yyyy / MM / dd" style="color: whitesmoke;font-size:3vh;font-weight: 120" />
+        <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size: 18vh;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:200" /><br />
+        <n-time :time="t" format="yyyy / MM / dd" style="color: whitesmoke;font-size:3vh;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200" />
         <br>
         <br>
         <span style="color: rgb(80,80,80);font-size: 6vh;font-weight: 100;"><span @click="fullscreen">「</span>習時,請靜。<span @click="defullscreen">」</span></span>
-        <br>
-        <br>
         <br>
         <br>
         <br>
@@ -66,7 +62,7 @@ setInterval(() => {
         window.close();
     }
     // console.log(f(n_t.getHours()) + ':' + f(n_t.getMinutes()) + ':' + f(n_t.getSeconds()));
-}, 1000);
+}, 999);
 
 onMounted(() => {
     let n_t = new Date();
