@@ -54,6 +54,7 @@ import { ref } from "vue"
 
 const cardRef = ref(0)
 const t = ref(0)
+const ifJump=true;
 
 function f(p) {
     return (p.length - 1 ? '' : '0') + p;
@@ -84,6 +85,10 @@ setInterval(() => {
 }, 1000);
 
 onMounted(() => {
+    if(ifJump){
+    window.routeTo("blackbd");
+    return;
+    }
     let n_t = new Date();
     t.value = n_t.getTime();
     fullscreen()
