@@ -22,8 +22,6 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
         <n-button class="closeClass" quaternary @click="close">
             关
         </n-button>
@@ -67,7 +65,7 @@ setInterval(() => {
         window.close();
     }
     // console.log(f(n_t.getHours()) + ':' + f(n_t.getMinutes()) + ':' + f(n_t.getSeconds()));
-}, 1000);
+}, 999);
 
 onMounted(() => {
     let n_t = new Date();
