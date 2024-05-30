@@ -8,11 +8,12 @@
     <n-card ref="cardRef" :bordered="false" style="text-align: center">
         <br>
         <br>
-        <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size: 18vh;font-weight: 100" /><br />
+        <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size: 18vh ;" /><br />
         <n-time :time="t" format="yyyy / MM / dd" style="color: whitesmoke;font-size:3vh;font-weight: 120" />
         <br>
         <br>
-        <span style="color: rgb(80,80,80);font-size: 6vh;font-weight: 100;"><span @click="fullscreen">「</span>習時,請靜。<span @click="defullscreen">」</span></span>
+        <span style="color: rgb(80,80,80);font-size: 6vh;font-weight: 100;"><span
+                @click="fullscreen">「</span>習時,請靜。<span @click="defullscreen">」</span></span>
         <br>
         <br>
         <br>
@@ -77,6 +78,15 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: Inter;
+    src: url("/Inter.woff2") format("woff2 supports variations"), url("/Inter.woff2") format("woff2-variations");
+    font-style: oblique 0deg 20deg;
+    font-weight: 1 999;
+    font-stretch: 75% 100%;
+    font-display: swap;
+}
+
 .n-card {
     background-color: rgba(0, 0, 0, 1);
     height: 100vh;
@@ -93,11 +103,10 @@ onMounted(() => {
     color: white;
 }
 
-.n-space{
+.n-space {
     gap: 10px;
-    position:absolute;
-    bottom:1rem;
+    position: absolute;
+    bottom: 1rem;
     left: 1rem;
 }
 </style>
-
