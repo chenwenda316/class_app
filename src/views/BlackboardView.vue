@@ -6,41 +6,25 @@
 -->
 <template>
     <n-card ref="cardRef" :bordered="false" style="text-align: center">
-        <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size:15vh" /><br />
-        <n-time :time="t" format="yyyy 年 MM 月 dd 日" style="color: whitesmoke;font-size:3vh" />
         <br>
-        <span style="color: whitesmoke;font-size:10vh">自习时间，保持安静</span>
         <br>
-        <n-button strong secondary @click="fullscreen">
-            全屏
+        <n-time :time="t" format="HH:mm:ss" style="color: whitesmoke;font-size: 18vh;font-family:'Harmony'" /><br />
+        <n-time :time="t" format="yyyy / MM / dd" style="color: whitesmoke;font-size:3vh;font-family:'Harmony'" />
+        <br>
+        <br>
+        <span style="color: rgb(80,80,80);font-size: 6vh;font-weight: 100;font-family:'Harmony'"><span
+                @click="fullscreen">「</span>習時,請靜。<span @click="defullscreen">」</span></span>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <n-button class="closeClass" quaternary @click="close">
+            关
         </n-button>
-        <n-button strong secondary @click="defullscreen">
-            还原
-        </n-button>
-        <br />
-        <n-space>
-            <n-button circle type="error" @click="close">
-                <template #icon>
-                    <n-icon>
-                        <Close />
-                    </n-icon>
-                </template>
-            </n-button>
-            <n-button circle type="warning" @click="defullscreen">
-                <template #icon>
-                    <n-icon>
-                        <Remove />
-                    </n-icon>
-                </template>
-            </n-button>
-            <n-button circle type="success" @click="fullscreen">
-                <template #icon>
-                    <n-icon>
-                        <Square />
-                    </n-icon>
-                </template>
-            </n-button>
-        </n-space>
     </n-card>
 </template>
 
@@ -54,7 +38,6 @@ import { ref } from "vue"
 
 const cardRef = ref(0)
 const t = ref(0)
-const ifJump=true;
 
 function f(p) {
     return (p.length - 1 ? '' : '0') + p;
@@ -82,13 +65,9 @@ setInterval(() => {
         window.close();
     }
     // console.log(f(n_t.getHours()) + ':' + f(n_t.getMinutes()) + ':' + f(n_t.getSeconds()));
-}, 1000);
+}, 999);
 
 onMounted(() => {
-    if(ifJump){
-    window.routeTo("blackbd");
-    return;
-    }
     let n_t = new Date();
     t.value = n_t.getTime();
     fullscreen()
@@ -97,9 +76,20 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: Harmony;
+    src: url("/HarmonyOS_Sans_SC_Light.ttf");
+}
+
 .n-card {
     background-color: rgba(0, 0, 0, 1);
     height: 100vh;
+}
+
+.closeClass {
+    font-size: 4vh;
+    font-family:Harmony;
+    color: #FFFFFF00;
 }
 
 .div {
@@ -108,10 +98,10 @@ onMounted(() => {
     color: white;
 }
 
-.n-space{
-    position:absolute;
-    top:1rem;
+.n-space {
+    gap: 10px;
+    position: absolute;
+    bottom: 1rem;
     left: 1rem;
 }
 </style>
-
