@@ -78,7 +78,7 @@ onMounted(() => {
 <style scoped>
 @font-face {
     font-family: Harmony;
-    src: url("/HarmonyOS_Sans_SC_Light.ttf");
+    src: url("/Harmony.ttf");
 }
 
 .n-card {
