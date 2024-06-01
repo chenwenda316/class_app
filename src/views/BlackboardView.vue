@@ -13,7 +13,7 @@
         <br>
         <br>
         <span style="color: rgb(80,80,80);font-size: 6vh;font-weight: 100;font-family:'Harmony'"><span
-                @click="fullscreen">「</span>習時,請靜。<span @click="defullscreen">」</span></span>
+                @click="fullscreen">「</span>習時，請靜。<span @click="defullscreen">」</span></span>
         <br>
         <br>
         <br>
